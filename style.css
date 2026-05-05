@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #121212;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: #B0B0B0;
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h3, strong {
+    font-family: 'Orbitron', sans-serif; /* Troca aqui */
+    color: #d7bfff;
+    letter-spacing: 2px; /* Orbitron fica linda com espaçamento maior */
+    font-weight: 400; 
+}
+/* Ajuste no Briefing e Registro para a fonte não ficar gigante */
+.banner .content .right strong, 
+.right-text strong {
+    font-size: 1.2rem; /* Orbitron é naturalmente maior, então diminuímos o size */
+    color: #BB86FC;
+}
+
+span {
+    color: #BB86FC;
+    font-weight: 600;
+}
+
+/* Navegação */
+nav {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+nav h1 { 
+    font-size: 1.5rem;
+    color: #BB86FC;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+nav ul li a {
+    color: #B0B0B0;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #BB86FC;
+}
+
+/* NOVA SEÇÃO: Mission Briefing */
+.mission-briefing {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.briefing-content {
+    background: rgba(187, 134, 252, 0.05);
+    border: 1px solid rgba(187, 134, 252, 0.2);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.briefing-content strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #BB86FC;
+    text-transform: uppercase;
+}
+
+/* Banner Personagem */
+.banner {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 2rem;
+}
+
+.banner .content {
+    display: flex;
+    max-width: 1000px;
+    gap: 4rem;
+    align-items: center;
+}
+
+.banner .left {
+    text-align: center;
+    min-width: 250px;
+}
+
+.banner img {
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 3px solid #BB86FC;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.2);
+}
+
+.banner .right {
+    background: #1E1E1E;
+    padding: 2.5rem;
+    border-left: 4px solid #BB86FC;
+    border-radius: 4px;
+}
+
+/* Seções de 2 em 2 */
+.info-row {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto 2rem;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.info-box {
+    flex: 1;
+    background: #1E1E1E;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.left-box {
+    border-left: 4px solid #BB86FC;
+}
+
+.right-box {
+    border-right: 4px solid #BB86FC;
+    text-align: right;
+}
+
+.info-box h3 {
+    color: #BB86FC;
+    margin-bottom: 1rem;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+    border-color: #BB86FC;
+}
+
+/* Responsividade */
+@media (max-width: 850px) {
+    .banner .content, .info-row {
+        flex-direction: column;
+        }
+    .right-box {
+        text-align: left;
+        border-right: none;
+        border-left: 4px solid #BB86FC;
+    }
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Classe para inverter a ordem (Texto na Esquerda, Imagem na Direita) */
+.inversion {
+    flex-direction: row-reverse !important;
+}
+
+/* Ajuste específico para o card de texto quando está na esquerda */
+.right-text {
+    background: #1E1E1E;
+    padding: 2.5rem;
+    border-right: 4px solid #BB86FC; /* Borda agora no lado direito */
+    border-radius: 4px;
+    flex: 1;
+}
+
+.right-text strong {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+/* Ajuste da imagem quando está no lado direito */
+.left-img {
+    text-align: center;
+    min-width: 250px;
+}
+
+.left-img img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #BB86FC;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.2);
+}
+
+.left-img strong {
+    display: block;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+}
+
+.left-img p {
+    color: #BB86FC;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Responsividade: Volta ao normal no mobile para não quebrar o layout */
+@media (max-width: 850px) {
+    .inversion {
+        flex-direction: column !important;
+    }
+    .right-text {
+        border-right: none;
+        border-left: 4px solid #BB86FC; /* Volta para a esquerda no mobile */
+    }
+}
