@@ -1,3 +1,4 @@
+/* --- Reset e Configurações Globais --- */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -6,34 +7,30 @@
 
 body {
     background-color: #121212;
+    /* Efeito sutil de estrelas no fundo */
     background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    color: #B0B0B0;
+    background-size: 50px 50px;
+    color: #E0E0E0; /* Cinza suave para não "estourar" a visão */
     font-family: 'Quicksand', sans-serif;
-    line-height: 1.6;
+    line-height: 1.8; /* Espaçamento de linha maior para melhor leitura */
+    -webkit-font-smoothing: antialiased;
 }
 
 h1, h3, strong {
-    font-family: 'Orbitron', sans-serif; /* Troca aqui */
-    color: #d7bfff;
-    letter-spacing: 2px; /* Orbitron fica linda com espaçamento maior */
-    font-weight: 400; 
-}
-/* Ajuste no Briefing e Registro para a fonte não ficar gigante */
-.banner .content .right strong, 
-.right-text strong {
-    font-size: 1.2rem; /* Orbitron é naturalmente maior, então diminuímos o size */
-    color: #BB86FC;
+    font-family: 'Orbitron', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    font-weight: 400;
 }
 
 span {
     color: #BB86FC;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-/* Navegação */
+/* --- Navegação --- */
 nav {
-    padding: 1.5rem 2rem;
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,192 +38,268 @@ nav {
     margin: 0 auto;
 }
 
-nav h1 { 
-    font-size: 1.5rem;
-    color: #BB86FC;
+nav h1 { font-size: 1.2rem; color: #BB86FC; }
+
+nav ul { display: flex; gap: 2.5rem; list-style: none; }
+
+nav ul li a { 
+    color: #B0B0B0; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.3s; 
 }
 
-nav ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
+nav ul li a:hover { color: #BB86FC; }
 
-nav ul li a {
-    color: #B0B0B0;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #BB86FC;
-}
-
-/* NOVA SEÇÃO: Mission Briefing */
-.mission-briefing {
-    max-width: 1100px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-}
-
-.briefing-content {
-    background: rgba(187, 134, 252, 0.05);
-    border: 1px solid rgba(187, 134, 252, 0.2);
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.briefing-content strong {
-    display: block;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #BB86FC;
-    text-transform: uppercase;
-}
-
-/* Banner Personagem */
+/* --- Estrutura de Banners --- */
 .banner {
     display: flex;
     justify-content: center;
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
 }
 
-.banner .content {
+.banner.inversion .content {
+    flex-direction: row-reverse; /* Inverte a posição: Imagem na direita */
+}
+
+.content {
     display: flex;
-    max-width: 1000px;
+    max-width: 1050px;
+    width: 100%;
     gap: 4rem;
     align-items: center;
 }
 
-.banner .left {
-    text-align: center;
-    min-width: 250px;
-}
-
-.banner img {
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    border: 3px solid #BB86FC;
-    margin-bottom: 1rem;
-    box-shadow: 0 0 20px rgba(187, 134, 252, 0.2);
-}
-
-.banner .right {
+/* Blocos de Texto */
+.text-block {
     background: #1E1E1E;
     padding: 2.5rem;
-    border-left: 4px solid #BB86FC;
     border-radius: 4px;
+    flex: 1;
 }
 
-/* Seções de 2 em 2 */
+.border-left { border-left: 4px solid #BB86FC; }
+.border-right { border-right: 4px solid #BB86FC; text-align: right; }
+
+.text-block strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #BB86FC;
+}
+
+.text-block p {
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+}
+
+/* Blocos de Imagem */
+.image-block {
+    text-align: center;
+    min-width: 280px;
+}
+
+.image-block img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 3px solid #BB86FC;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 0 30px rgba(187, 134, 252, 0.15);
+    object-fit: cover;
+}
+
+.image-block strong {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.status-tag {
+    color: #BB86FC;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* --- Seções de Informação (2 em 2) --- */
 .info-row {
     display: flex;
     max-width: 1100px;
-    margin: 0 auto 2rem;
-    gap: 2rem;
+    margin: 0 auto 2.5rem;
+    gap: 2.5rem;
     padding: 0 2rem;
 }
 
 .info-box {
     flex: 1;
     background: #1E1E1E;
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 8px;
     border: 1px solid #333;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.left-accent { border-left: 4px solid #BB86FC; }
+.right-accent { border-right: 4px solid #BB86FC; text-align: right; }
+
+.info-box h3 { font-size: 1.1rem; color: #BB86FC; margin-bottom: 1rem; }
+
+.info-box p { font-size: 0.95rem; color: #B0B0B0; }
+
+.info-box:hover {
+    transform: translateY(-8px);
+    border-color: #BB86FC;
+    background: #252525;
+}
+
+/* --- Reviews --- */
+.review-large {
+    padding: 3rem;
+    font-style: italic;
+}
+
+.review-large h3 {
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+
+.review-large p {
+    font-size: 1rem;
+    color: #C8C8C8;
+    line-height: 1.9;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 850px) {
+    .content, .info-row, .banner.inversion .content { 
+        flex-direction: column !important; 
+        text-align: center;
+    }
+    
+    .border-right, .border-left, .left-accent, .right-accent {
+        border: none;
+        border-top: 4px solid #BB86FC;
+        text-align: center;
+    }
+
+    nav { flex-direction: column; gap: 1.5rem; }
+}
+/* --- Footer --- */
+footer {
+    margin-top: 4rem;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid #2a2a2a;
+    text-align: center;
+    color: #555;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+footer span { color: #BB86FC; }
+
+/* --- Ficha Técnica / Stats grid --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+}
+
+.stat-card {
+    background: #1E1E1E;
+    border: 1px solid #333;
+    border-top: 4px solid #BB86FC;
+    border-radius: 8px;
+    padding: 1.8rem;
+    text-align: center;
     transition: 0.3s;
 }
 
-.left-box {
-    border-left: 4px solid #BB86FC;
-}
-
-.right-box {
-    border-right: 4px solid #BB86FC;
-    text-align: right;
-}
-
-.info-box h3 {
-    color: #BB86FC;
-    margin-bottom: 1rem;
-}
-
-.info-box:hover {
+.stat-card:hover {
+    background: #252525;
     transform: translateY(-5px);
-    border-color: #BB86FC;
 }
 
-/* Responsividade */
-@media (max-width: 850px) {
-    .banner .content, .info-row {
-        flex-direction: column;
-        }
-    .right-box {
-        text-align: left;
-        border-right: none;
-        border-left: 4px solid #BB86FC;
-    }
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-    }
-}
-
-/* Classe para inverter a ordem (Texto na Esquerda, Imagem na Direita) */
-.inversion {
-    flex-direction: row-reverse !important;
-}
-
-/* Ajuste específico para o card de texto quando está na esquerda */
-.right-text {
-    background: #1E1E1E;
-    padding: 2.5rem;
-    border-right: 4px solid #BB86FC; /* Borda agora no lado direito */
-    border-radius: 4px;
-    flex: 1;
-}
-
-.right-text strong {
-    display: block;
-    font-size: 1.4rem;
-    margin-bottom: 1.2rem;
-    color: #FFFFFF;
-    text-transform: uppercase;
-}
-
-/* Ajuste da imagem quando está no lado direito */
-.left-img {
-    text-align: center;
-    min-width: 250px;
-}
-
-.left-img img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 3px solid #BB86FC;
-    margin-bottom: 1rem;
-    box-shadow: 0 0 20px rgba(187, 134, 252, 0.2);
-}
-
-.left-img strong {
-    display: block;
-    font-size: 1.2rem;
-    color: #FFFFFF;
-}
-
-.left-img p {
+.stat-card .stat-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
     color: #BB86FC;
-    font-weight: 600;
-    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.4rem;
 }
 
-/* Responsividade: Volta ao normal no mobile para não quebrar o layout */
+.stat-card .stat-label {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Section title --- */
+.section-title {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #BB86FC;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 3rem auto 1.5rem;
+    max-width: 1100px;
+    padding: 0 2rem;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: #BB86FC;
+    margin: 0.8rem auto 0;
+    opacity: 0.5;
+}
+
+/* --- Trilha sonora --- */
+.tracklist {
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+}
+
+.track-item {
+    background: #1a1a1a;
+    border-left: 3px solid #333;
+    padding: 0.8rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #B0B0B0;
+    display: flex;
+    gap: 1rem;
+    transition: 0.2s;
+}
+
+.track-item:hover {
+    border-left-color: #BB86FC;
+    color: #E0E0E0;
+    background: #222;
+}
+
+.track-item .track-num {
+    color: #555;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    min-width: 24px;
+}
+
 @media (max-width: 850px) {
-    .inversion {
-        flex-direction: column !important;
-    }
-    .right-text {
-        border-right: none;
-        border-left: 4px solid #BB86FC; /* Volta para a esquerda no mobile */
-    }
+    .stats-grid { grid-template-columns: 1fr; }
+    .tracklist { grid-template-columns: 1fr; }
 }
